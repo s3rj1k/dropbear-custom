@@ -1,0 +1,17 @@
+#!/usr/bin/make -f
+
+%:
+	dh $@
+
+override_dh_builddeb:
+	dh_builddeb -- -Zgzip
+
+override_dh_auto_install:
+	dh_install dropbear usr/sbin/
+
+override_dh_auto_configure:
+	CFLAGS='$(CFLAGS)'' -DSFTPSERVER_PATH="\"/usr/lib/sftp-server\""' \
+	  ./configure --host='$(DEB_HOST_GNU_TYPE)' \
+	    --build='$(DEB_BUILD_GNU_TYPE)' --prefix=/usr \
+	    --mandir=\$${prefix}/share/man --infodir=\$${prefix}/share/info \
+	    --disable-pam

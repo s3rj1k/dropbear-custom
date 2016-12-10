@@ -1,0 +1,17 @@
+#!/bin/sh
+set -e
+
+test "$1" = 'configure' || exit 0
+
+if test ! -d /etc/dropbear/; then
+  mkdir -p /etc/dropbear/
+fi
+
+if test -x /etc/init.d/dropbear-lite; then
+  update-rc.d dropbear-lite defaults >/dev/null
+  if test -x /usr/sbin/invoke-rc.d; then
+    invoke-rc.d dropbear-lite restart
+  else
+    /etc/init.d/dropbear-lite restart
+  fi
+fi

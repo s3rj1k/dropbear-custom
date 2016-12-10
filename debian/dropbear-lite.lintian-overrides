@@ -1,0 +1,3 @@
+dropbear-lite: new-package-should-close-itp-bug
+dropbear-lite: copyright-without-copyright-notice
+dropbear-lite: binary-without-manpage usr/sbin/dropbear

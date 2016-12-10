@@ -1,0 +1,14 @@
+Source: dropbear-lite
+Section: net
+Priority: optional
+Maintainer: s3rj1k <evasive.gyron@gmail.com>
+Build-Depends: debhelper (>= 9)
+Standards-Version: 3.9.6
+
+Package: dropbear-lite
+Architecture: any
+Conflicts: dropbear
+Provides: dropbear
+Depends: ${shlibs:Depends}, openssh-sftp-server
+Description: Lightweight SSH2 server, custom build for remote provisioning.
+ Lightweight SSH2 server - https://matt.ucc.asn.au/dropbear/dropbear.html
